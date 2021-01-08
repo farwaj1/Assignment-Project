@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div id="navbarSupportedContent">
+    <form class="form-inline">
+      <input
+        [(ngModel)]="titleSearch"
+        id="titleSearch"
+        name="titleSearch"
+        class="form-control"
+        type="search"
+        placeholder="Search Title..."
+        aria-label="Search"
+      />
+       <button
+       [disabled]="titleSearch == ''"
+        id="searchBtn"
+        (click)="onSubmit()"
+        class="btn btn-outline-success"
+        type="submit"
+      >Search</button>
+    </form> 
+  </div>
+</nav>
+<div *ngIf="model.data.length == 0">
+<div *ngIf="titleSearch !=''">
+  <h4>No Data Found</h4>
+</div>
+</div>
+<br>
+<div *ngIf="model.data.length != 0">
+  <div
+    class="data"
+    *ngFor="let d of model.data | paginate: { itemsPerPage: 10, currentPage: p }"
+  >
+    <img src="{{ d.thumbnailUrl }}" alt="" />
+    {{ d.title }}
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
