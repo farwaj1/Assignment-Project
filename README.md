@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.1.
 
+## Installation
+
+-If Angular CLI is not already installed in your machine, use this command to install it:
+`npm install -g @angular/cli`
+
+-In the root folder of your project run this command:
+`npm install`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
